@@ -1,0 +1,12 @@
+FROM node:20-alpine
+
+RUN apk add --no-cache openssl
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+EXPOSE 8000
+
+CMD ["sh", "-c", "./node_modules/.bin/prisma generate && ./node_modules/.bin/prisma db push --accept-data-loss && npm run start:dev"]
