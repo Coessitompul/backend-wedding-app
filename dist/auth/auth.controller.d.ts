@@ -8,5 +8,14 @@ export declare class AuthController {
     register(dto: RegisterDto): Promise<import("../common/types/api-response.type").ApiResponse<import("./auth.service").AuthData>>;
     login(dto: LoginDto): Promise<import("../common/types/api-response.type").ApiResponse<import("./auth.service").AuthData>>;
     logout(): import("../common/types/api-response.type").ApiResponse<null>;
-    getMe(user: Users): Promise<import("../common/types/api-response.type").ApiResponse<Omit<Users, "password">>>;
+    getMe(user: Users): Promise<import("../common/types/api-response.type").ApiResponse<Omit<{
+        name: string;
+        id: number;
+        user_uuid: string;
+        email: string;
+        password: string;
+        role: import(".prisma/client").$Enums.Role;
+        createdAt: Date;
+        updatedAt: Date;
+    }, "password">>>;
 }

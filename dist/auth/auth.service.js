@@ -72,7 +72,7 @@ let AuthService = class AuthService {
     }
     signToken(user) {
         const payload = {
-            sub: user.id,
+            sub: user.user_uuid,
             email: user.email,
             role: user.role,
         };

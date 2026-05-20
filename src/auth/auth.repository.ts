@@ -10,8 +10,8 @@ export class AuthRepository {
     return this.prisma.users.findUnique({ where: { email } });
   }
 
-  async findById(id: string): Promise<Users | null> {
-    return this.prisma.users.findUnique({ where: { id } });
+  async findByUuid(uuid: string): Promise<Users | null> {
+    return this.prisma.users.findUnique({ where: { user_uuid: uuid } });
   }
 
   async create(data: Prisma.UsersCreateInput): Promise<Users> {

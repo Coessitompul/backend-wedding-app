@@ -19,8 +19,8 @@ let AuthRepository = class AuthRepository {
     async findByEmail(email) {
         return this.prisma.users.findUnique({ where: { email } });
     }
-    async findById(id) {
-        return this.prisma.users.findUnique({ where: { id } });
+    async findByUuid(uuid) {
+        return this.prisma.users.findUnique({ where: { user_uuid: uuid } });
     }
     async create(data) {
         return this.prisma.users.create({ data });

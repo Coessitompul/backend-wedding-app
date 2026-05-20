@@ -27,7 +27,7 @@ let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(pas
     }
     async validate(payload) {
         const user = await this.prisma.users.findUnique({
-            where: { id: payload.sub },
+            where: { user_uuid: payload.sub },
         });
         if (!user) {
             throw new common_1.UnauthorizedException('Token tidak valid');

@@ -10,7 +10,7 @@ import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
 import { ApiResponse } from '../common/types/api-response.type';
 import { JwtPayload } from '../common/types/jwt-payload.type';
-import { Userss } from '@prisma/client';
+import { Users } from '@prisma/client';
 
 export interface AuthData {
   user: Omit<Users, 'password'>;
@@ -87,7 +87,7 @@ export class AuthService {
 
   private signToken(user: Users): string {
     const payload: JwtPayload = {
-      sub: user.id,
+      sub: user.user_uuid,
       email: user.email,
       role: user.role,
     };
