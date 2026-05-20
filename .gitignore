@@ -7,7 +7,7 @@ node_modules/
 .env.production
 
 # Build output
-# dist/
+dist_lama
 
 # Logs
 *.log
